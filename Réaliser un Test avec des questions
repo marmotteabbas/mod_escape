@@ -1,15 +1,17 @@
 //On récupère un jeton user pour un étudiant qui doit etre inscrit au cours en question
 http://localhost/moodle/login/token.php?username=user_2&service=moodle_mobile_app&password=sqduhsdukhsdq@
-{"token":"55dee996d676c99fac3795ed71eaa8b4","privatetoken":null}
+{"token":"65bda6d00538bda25a8aa44b851f0ffa","privatetoken":null}
 
+//On check l'ensemble des escapes dispobile pour un étudiant
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=mod_escape_get_all_escapes&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
 
 
 //on lance l'épreuve (chrono)
-http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&wsfunction=mod_escape_launch_attempt&wstoken=55dee996d676c99fac3795ed71eaa8b4&moodlewssettingfilter=true
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&wsfunction=mod_escape_launch_attempt&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
 
 
 // on check les pages pour savoir par laquelle commencer
-http://localhost/moodle/webservice/rest/server.php?wstoken=55dee996d676c99fac3795ed71eaa8b4&wsfunction=mod_escape_get_pages&moodlewsrestformat=json&escapeid=1
+http://localhost/moodle/webservice/rest/server.php?wstoken=65bda6d00538bda25a8aa44b851f0ffa&wsfunction=mod_escape_get_pages&moodlewsrestformat=json&escapeid=1
 {"pages":[{"page":{"id":1,"escapeid":1,"prevpageid":0,"nextpageid":2,"qtype":2,"qoption":0,"layout":0,"display":0,"timecreated":1608045519,"timemodified":0,"title":"vrai\/faux","contents":"<div class=\"no-overflow\"><p>ssqdsq<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":2,"typestring":"True\/false"},"answerids":[1,2],"jumps":[-1,0],"filescount":0,"filessizetotal":0},{"page":{"id":2,"escapeid":1,"prevpageid":1,"nextpageid":3,"qtype":277,"qoption":0,"layout":0,"display":0,"timecreated":1608129655,"timemodified":1608290765,"title":"Picture clicking","contents":"<div class=\"no-overflow\"><span id='intro_text_clicking_pix'>Mur<\/span><br \/><svg id=\"svg_viewer\" class=\"svg_viewer\" height=\"204\" width=\"534\" onclick=\"require('mod_escape\/img_manager').coordsandintro(event)\"><image xlink:href=\"http:\/\/localhost\/moodle\/pluginfile.php\/1404\/mod_escape\/page_contents\/2\/wall.png\" x=\"0\" y=\"0\" style=\"width: 534px;\"><\/image><circle cx=\"105\" cy=\"50.21875\" r=\"10\" stroke=\"#4b6c0b\" fill=\"#9dcc41\" class=\"puce\"><\/circle><circle cx=\"271\" cy=\"109.21875\" r=\"10\" stroke=\"#4b6c0b\" fill=\"#9dcc41\" class=\"puce\"><\/circle><\/svg><\/div>","contentsformat":1,"displayinmenublock":true,"type":1,"typeid":277,"typestring":"Clicking Picture"},"answerids":[3,4],"jumps":[-1,-40],"filescount":1,"filessizetotal":15084},{"page":{"id":3,"escapeid":1,"prevpageid":2,"nextpageid":4,"qtype":20,"qoption":0,"layout":1,"display":1,"timecreated":1608290271,"timemodified":0,"title":"contenu","contents":"<div class=\"no-overflow\"><p>le contenu<\/p><\/div>","contentsformat":1,"displayinmenublock":true,"type":1,"typeid":20,"typestring":"Content"},"answerids":[5,6],"jumps":[-1,-9],"filescount":0,"filessizetotal":0},{"page":{"id":4,"escapeid":1,"prevpageid":3,"nextpageid":5,"qtype":5,"qoption":0,"layout":0,"display":0,"timecreated":1608290403,"timemodified":0,"title":"matching","contents":"<div class=\"no-overflow\"><p>matichung<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":5,"typestring":"Matching"},"answerids":[7,8,9,10],"jumps":[-1,-1,0,0],"filescount":0,"filessizetotal":0},{"page":{"id":5,"escapeid":1,"prevpageid":4,"nextpageid":6,"qtype":8,"qoption":0,"layout":0,"display":0,"timecreated":1608290504,"timemodified":0,"title":"numerique","contents":"<div class=\"no-overflow\"><p>2+2 = ?<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":8,"typestring":"Numerical"},"answerids":[11,12],"jumps":[-1,-1],"filescount":0,"filessizetotal":0},{"page":{"id":6,"escapeid":1,"prevpageid":5,"nextpageid":7,"qtype":3,"qoption":0,"layout":0,"display":0,"timecreated":1608290610,"timemodified":0,"title":"multi","contents":"<div class=\"no-overflow\"><p>multi<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":3,"typestring":"Multichoice"},"answerids":[13,14,15],"jumps":[-1,-1,-1],"filescount":0,"filessizetotal":0},{"page":{"id":7,"escapeid":1,"prevpageid":6,"nextpageid":0,"qtype":1,"qoption":0,"layout":0,"display":0,"timecreated":1608290724,"timemodified":0,"title":"Short answer","contents":"<div class=\"no-overflow\"><p>short answer<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":1,"typestring":"Short answer"},"answerids":[16,17],"jumps":[-9,-9],"filescount":0,"filessizetotal":0}],"warnings":[]}
 
 
@@ -18,9 +20,135 @@ http://localhost/moodle/webservice/rest/server.php?wstoken=55dee996d676c99fac379
 
 
 //On récupère le contenu de la page
-http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=1&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=55dee996d676c99fac3795ed71eaa8b4&moodlewssettingfilter=true
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=1&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
 {"page":{"id":1,"escapeid":1,"prevpageid":0,"nextpageid":2,"qtype":2,"qoption":0,"layout":0,"display":0,"timecreated":1608045519,"timemodified":0,"title":"vrai\/faux","contents":"<div class=\"no-overflow\"><p>ssqdsq<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":2,"typestring":"True\/false"},"newpageid":1,"location":"[45.182252361910216,5.759153366088868]","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":1,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":1,"flags":0,"timecreated":1608045519,"timemodified":0,"answer":"<p>vrai<\/p>","answerformat":1,"response":"<p>vrai<br><\/p>","responseformat":1},{"id":2,"answerfiles":[],"responsefiles":[],"jumpto":0,"grade":0,"score":0,"flags":0,"timecreated":1608045519,"timemodified":0,"answer":"<p>faux<\/p>","answerformat":1,"response":"<p>faux<br><\/p>","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
 
 //On récupère les réponses possible cette question
 http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=1&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
 {"answers":[{"id":"1","escapeid":"1","answer":"<p>vrai<\/p>","jumpto":"-1"},{"id":"2","escapeid":"1","answer":"<p>faux<\/p>","jumpto":"0"}]}
+
+//On répond à la question (c'est un vrai faux)
+ http://localhost/moodle/webservice/rest/server.php?wsfunction=mod_escape_answer_question&wstoken=65bda6d00538bda25a8aa44b851f0ffa&escapeid=1&answerorid[0]=1&pageid=1
+<RESPONSE> <SINGLE> <KEY name="userresponse"> <VALUE><p>vrai</p></VALUE> </KEY> <KEY name="studentanswerformat"> <VALUE>0</VALUE> </KEY> <KEY name="studentanswer"> <VALUE><p>vrai</p></VALUE> </KEY> <KEY name="response"> <VALUE><p>vrai<br></p></VALUE> </KEY> <KEY name="nodefaultresponse"> <VALUE>0</VALUE> </KEY> <KEY name="noanswer"> <VALUE>0</VALUE> </KEY> <KEY name="newpageid"> <VALUE>2</VALUE> </KEY> <KEY name="maxattemptsreached"> <VALUE>0</VALUE> </KEY> <KEY name="isessayquestion"> <VALUE>0</VALUE> </KEY> <KEY name="inmediatejump"> <VALUE>0</VALUE> </KEY> <KEY name="feedback"> <VALUE> <div class="box generalbox boxaligncenter p-y-1 py-3"><div class="no-overflow"><div class="no-overflow"><p>ssqdsq</p></div></div></div><div class="correctanswer generalbox"><em>Your answer</em> : <div class="studentanswer m-t-2 m-b-2"><table class="generaltable"> <tbody><tr class=""> <td class="cell c0 lastcol" style=""><div class="no-overflow"><div class="text_to_html"><p>vrai</p></div></div></td> </tr> <tr class="lastrow"> <td class="cell c0 lastcol" style=""><div class="response correct"><em>Response</em>: <br/><p>vrai<br></p></div></td> </tr> </tbody> </table> </div></div> </VALUE> </KEY> <KEY name="correctanswer"> <VALUE>1</VALUE> </KEY> <KEY name="attemptsremaining"> <VALUE>0</VALUE> </KEY> <KEY name="answerid"> <VALUE>1</VALUE> </KEY> </SINGLE> </RESPONSE>
+
+
+
+=
+=
+
+
+//On récupère le contenu de la page grace au indication de la précédente réponse
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=2&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":2,"escapeid":1,"prevpageid":1,"nextpageid":3,"qtype":277,"qoption":0,"layout":0,"display":0,"timecreated":1608129655,"timemodified":1608290765,"title":"Picture clicking","contents":"<div class=\"no-overflow\"><span id='intro_text_clicking_pix'>Mur<\/span><br \/><svg id=\"svg_viewer\" class=\"svg_viewer\" height=\"204\" width=\"534\" onclick=\"require('mod_escape\/img_manager').coordsandintro(event)\"><image xlink:href=\"http:\/\/localhost\/moodle\/pluginfile.php\/1404\/mod_escape\/page_contents\/2\/wall.png\" x=\"0\" y=\"0\" style=\"width: 534px;\"><\/image><circle cx=\"105\" cy=\"50.21875\" r=\"10\" stroke=\"#4b6c0b\" fill=\"#9dcc41\" class=\"puce\"><\/circle><circle cx=\"271\" cy=\"109.21875\" r=\"10\" stroke=\"#4b6c0b\" fill=\"#9dcc41\" class=\"puce\"><\/circle><\/svg><\/div>","contentsformat":1,"displayinmenublock":true,"type":1,"typeid":277,"typestring":"Clicking Picture"},"newpageid":2,"location":"","ongoingscore":"","progress":null,"contentfiles":[{"filename":"wall.png","filepath":"\/","filesize":15084,"fileurl":"http:\/\/localhost\/moodle\/webservice\/pluginfile.php\/1404\/mod_escape\/page_contents\/2\/wall.png","timemodified":1608129655,"mimetype":"image\/png","isexternalfile":false}],"answers":[{"id":3,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608129655,"timemodified":0,"answer":"(105,50.21875)","answerformat":1,"response":"","responseformat":1},{"id":4,"answerfiles":[],"responsefiles":[],"jumpto":-40,"grade":0,"score":0,"flags":0,"timecreated":1608129655,"timemodified":0,"answer":"(271,109.21875)","answerformat":1,"response":"","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
+
+//On récupère les "réponses" possible, c'est ici un clicking picture, mais ça donne la possibilité de là où on va
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=2&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
+{"answers":[{"id":"3","escapeid":"1","answer":"(105,50.21875)","jumpto":"-1"},{"id":"4","escapeid":"1","answer":"(271,109.21875)","jumpto":"-40"}]}
+
+//vu que c'est une cluicking picture on utilise process page (cette fonction native moodle est nul à chier, il faut indiquer là où on veut jump ce qui est vraiment de la merde)
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&wsfunction=mod_escape_process_page&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true&pageid=2&data[0][name]=jumpto&data[0][value]=-1&data[1][name]=id&data[1][value]=1247
+{"newpageid":3,"inmediatejump":true,"nodefaultresponse":false,"feedback":"","attemptsremaining":null,"correctanswer":false,"noanswer":false,"isessayquestion":false,"maxattemptsreached":false,"response":"","studentanswer":"","userresponse":"","reviewmode":false,"ongoingscore":"","progress":null,"displaymenu":false,"messages":[],"warnings":[]}
+
+
+
+=
+=
+
+
+
+//On récupère le contenu de la page grace au indication de la précédente réponse
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=3&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":3,"escapeid":1,"prevpageid":2,"nextpageid":4,"qtype":20,"qoption":0,"layout":1,"display":1,"timecreated":1608290271,"timemodified":0,"title":"contenu","contents":"<div class=\"no-overflow\"><p>le contenu<\/p><\/div>","contentsformat":1,"displayinmenublock":true,"type":1,"typeid":20,"typestring":"Content"},"newpageid":3,"location":"[45.179805917372434,5.737781524658203]","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":5,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608290271,"timemodified":0,"answer":"go next page","answerformat":1,"response":"","responseformat":1},{"id":6,"answerfiles":[],"responsefiles":[],"jumpto":-9,"grade":0,"score":0,"flags":0,"timecreated":1608290271,"timemodified":0,"answer":"fin","answerformat":1,"response":"","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
+
+//On récupère les "réponses" possible, c'est ici une page, mais ça donne la possibilité de là où on va
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=3&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
+{"answers":[{"id":"5","escapeid":"1","answer":"go next page","jumpto":"-1"},{"id":"6","escapeid":"1","answer":"fin","jumpto":"-9"}]}
+
+//Même process que pour clicking picture et oui c'est nul !
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&wsfunction=mod_escape_process_page&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true&pageid=3&data[0][name]=jumpto&data[0][value]=-1&data[1][name]=id&data[1][value]=1247
+{"newpageid":4,"inmediatejump":true,"nodefaultresponse":false,"feedback":"","attemptsremaining":null,"correctanswer":false,"noanswer":false,"isessayquestion":false,"maxattemptsreached":false,"response":"","studentanswer":"","userresponse":"","reviewmode":false,"ongoingscore":"","progress":null,"displaymenu":false,"messages":[],"warnings":[]}
+
+
+=
+=
+
+//On récupère le contenu de la page grace au indication de la précédente réponse
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=4&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":4,"escapeid":1,"prevpageid":3,"nextpageid":5,"qtype":5,"qoption":0,"layout":0,"display":0,"timecreated":1608290403,"timemodified":0,"title":"matching","contents":"<div class=\"no-overflow\"><p>matichung<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":5,"typestring":"Matching"},"newpageid":4,"location":"","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":7,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":1,"flags":0,"timecreated":1608290403,"timemodified":0,"answer":"<p>correct<\/p>","answerformat":1,"response":"","responseformat":1},{"id":8,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608290403,"timemodified":0,"answer":"<p>wrong<\/p>","answerformat":1,"response":"","responseformat":1},{"id":9,"answerfiles":[],"responsefiles":[],"jumpto":0,"grade":0,"score":0,"flags":0,"timecreated":1608290403,"timemodified":0,"answer":"<p>Joris<\/p>","answerformat":1,"response":"info","responseformat":1},{"id":10,"answerfiles":[],"responsefiles":[],"jumpto":0,"grade":0,"score":0,"flags":0,"timecreated":1608290403,"timemodified":0,"answer":"<p>Jambon<\/p>","answerformat":1,"response":"Bouffe","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
+
+
+// réponse possible
+{"answers":[{"id":"7","escapeid":"1","answer":"<p>correct<\/p>","jumpto":"-1"},{"id":"8","escapeid":"1","answer":"<p>wrong<\/p>","jumpto":"-1"},{"id":"9","escapeid":"1","answer":"<p>Joris<\/p>","jumpto":"0"},{"id":"10","escapeid":"1","answer":"<p>Jambon<\/p>","jumpto":"0"}]}
+
+//Ici c'est un matching il faut mettre en face des ids les respones adéquate au format text
+http://localhost/moodle/webservice/rest/server.php?wsfunction=mod_escape_answer_question&wstoken=65bda6d00538bda25a8aa44b851f0ffa&escapeid=1&answerorid[9]=info&answerorid[10]=Bouffe&pageid=4
+This XML file does not appear to have any style information associated with it. The document tree is shown below. <RESPONSE> <SINGLE> <KEY name="userresponse"> <VALUE>info,Bouffe</VALUE> </KEY> <KEY name="studentanswerformat"> <VALUE>1</VALUE> </KEY> <KEY name="studentanswer"> <VALUE> <br /><p>Joris</p> = info<br /><p>Jambon</p> = Bouffe </VALUE> </KEY> <KEY name="response"> <VALUE><p>correct</p></VALUE> </KEY> <KEY name="nodefaultresponse"> <VALUE>0</VALUE> </KEY> <KEY name="noanswer"> <VALUE>0</VALUE> </KEY> <KEY name="newpageid"> <VALUE>5</VALUE> </KEY> <KEY name="maxattemptsreached"> <VALUE>0</VALUE> </KEY> <KEY name="isessayquestion"> <VALUE>0</VALUE> </KEY> <KEY name="inmediatejump"> <VALUE>0</VALUE> </KEY> <KEY name="feedback"> <VALUE> <div class="box generalbox boxaligncenter p-y-1 py-3"><div class="no-overflow"><div class="no-overflow"><p>matichung</p></div></div></div><div class="correctanswer generalbox"><em>Your answer</em> : <div class="studentanswer m-t-2 m-b-2"><table class="generaltable"> <tbody><tr class=""> <td class="cell c0 lastcol" style=""><div class="no-overflow"><br /><p>Joris</p> = info<br /><p>Jambon</p> = Bouffe</div></td> </tr> <tr class="lastrow"> <td class="cell c0 lastcol" style=""><div class="response correct"><em>Response</em>: <br/><p>correct</p></div></td> </tr> </tbody> </table> </div></div> </VALUE> </KEY> <KEY name="correctanswer"> <VALUE>1</VALUE> </KEY> <KEY name="attemptsremaining"> <VALUE>0</VALUE> </KEY> <KEY name="answerid"> <VALUE>7</VALUE> </KEY> </SINGLE> </RESPONSE>
+
+
+
+=
+=
+
+//On consulte la page
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=5&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":5,"escapeid":1,"prevpageid":4,"nextpageid":6,"qtype":8,"qoption":0,"layout":0,"display":0,"timecreated":1608290504,"timemodified":0,"title":"numerique","contents":"<div class=\"no-overflow\"><p>2+2 = ?<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":8,"typestring":"Numerical"},"newpageid":5,"location":"[45.17390301176968,5.77958106994629]","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":11,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":1,"flags":0,"timecreated":1608290504,"timemodified":0,"answer":"4","answerformat":1,"response":"<p>4<\/p>","responseformat":1},{"id":12,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608290504,"timemodified":0,"answer":"0","answerformat":1,"response":"","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
+
+
+//on consulte les réponses possible
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=5&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
+{"answers":[{"id":"11","escapeid":"1","answer":"4","response":"<p>4<\/p>","jumpto":"-1"},{"id":"12","escapeid":"1","answer":"0","response":"","jumpto":"-1"}]}
+
+//C'est une question numérique on donne la valeur numérique de la réponse et pas l'id
+http://localhost/moodle/webservice/rest/server.php?wsfunction=mod_escape_answer_question&wstoken=65bda6d00538bda25a8aa44b851f0ffa&escapeid=1&answerorid[0]=4&pageid=5
+<RESPONSE> <SINGLE> <KEY name="userresponse"> <VALUE>4</VALUE> </KEY> <KEY name="studentanswerformat"> <VALUE>0</VALUE> </KEY> <KEY name="studentanswer"> <VALUE>4</VALUE> </KEY> <KEY name="response"> <VALUE><p>4</p></VALUE> </KEY> <KEY name="nodefaultresponse"> <VALUE>0</VALUE> </KEY> <KEY name="noanswer"> <VALUE>0</VALUE> </KEY> <KEY name="newpageid"> <VALUE>6</VALUE> </KEY> <KEY name="maxattemptsreached"> <VALUE>0</VALUE> </KEY> <KEY name="isessayquestion"> <VALUE>0</VALUE> </KEY> <KEY name="inmediatejump"> <VALUE>0</VALUE> </KEY> <KEY name="feedback"> <VALUE> <div class="box generalbox boxaligncenter p-y-1 py-3"><div class="no-overflow"><div class="no-overflow"><p>2+2 = ?</p></div></div></div><div class="correctanswer generalbox"><em>Your answer</em> : <div class="studentanswer m-t-2 m-b-2"><table class="generaltable"> <tbody><tr class=""> <td class="cell c0 lastcol" style=""><div class="no-overflow"><div class="text_to_html">4</div></div></td> </tr> <tr class="lastrow"> <td class="cell c0 lastcol" style=""><div class="response correct"><em>Response</em>: <br/><p>4</p></div></td> </tr> </tbody> </table> </div></div> </VALUE> </KEY> <KEY name="correctanswer"> <VALUE>1</VALUE> </KEY> <KEY name="attemptsremaining"> <VALUE>0</VALUE> </KEY> <KEY name="answerid"> <VALUE>11</VALUE> </KEY> </SINGLE> </RESPONSE>
+
+
+
+=
+=
+
+
+//On consulte la page
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=6&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":6,"escapeid":1,"prevpageid":5,"nextpageid":7,"qtype":3,"qoption":0,"layout":0,"display":0,"timecreated":1608290610,"timemodified":0,"title":"multi","contents":"<div class=\"no-overflow\"><p>multi<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":3,"typestring":"Multichoice"},"newpageid":6,"location":"[45.16966736615143,5.739240646362306]","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":13,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":1,"flags":0,"timecreated":1608290610,"timemodified":0,"answer":"<p>repppppppppp 1<\/p> ","answerformat":1,"response":"<p>rep1<\/p>","responseformat":1},{"id":14,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608290610,"timemodified":0,"answer":"<p>rep2<\/p> ","answerformat":1,"response":"<p>rep2<\/p>","responseformat":1},{"id":15,"answerfiles":[],"responsefiles":[],"jumpto":-1,"grade":0,"score":0,"flags":0,"timecreated":1608290610,"timemodified":0,"answer":"<p>rep3<\/p> ","answerformat":1,"response":"<p>rep3<\/p>","responseformat":1}],"messages":[],"displaymenu":false,"warnings":[]}
+
+//check les réponses
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=6&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
+{"answers":[{"id":"13","escapeid":"1","answer":"<p>repppppppppp 1<\/p>","response":"<p>rep1<\/p>","jumpto":"-1"},{"id":"14","escapeid":"1","answer":"<p>rep2<\/p>","response":"<p>rep2<\/p>","jumpto":"-1"},{"id":"15","escapeid":"1","answer":"<p>rep3<\/p>","response":"<p>rep3<\/p>","jumpto":"-1"}]}
+
+//On répond
+http://localhost/moodle/webservice/rest/server.php?wsfunction=mod_escape_answer_question&wstoken=65bda6d00538bda25a8aa44b851f0ffa&escapeid=1&answerorid[0]=13&pageid=6
+<RESPONSE> <SINGLE> <KEY name="userresponse"> <VALUE><p>repppppppppp 1</p></VALUE> </KEY> <KEY name="studentanswerformat"> <VALUE>0</VALUE> </KEY> <KEY name="studentanswer"> <VALUE><p>repppppppppp 1</p></VALUE> </KEY> <KEY name="response"> <VALUE><p>rep1</p></VALUE> </KEY> <KEY name="nodefaultresponse"> <VALUE>0</VALUE> </KEY> <KEY name="noanswer"> <VALUE>0</VALUE> </KEY> <KEY name="newpageid"> <VALUE>7</VALUE> </KEY> <KEY name="maxattemptsreached"> <VALUE>0</VALUE> </KEY> <KEY name="isessayquestion"> <VALUE>0</VALUE> </KEY> <KEY name="inmediatejump"> <VALUE>0</VALUE> </KEY> <KEY name="feedback"> <VALUE> <div class="box generalbox boxaligncenter p-y-1 py-3"><div class="no-overflow"><div class="no-overflow"><p>multi</p></div></div></div><div class="correctanswer generalbox"><em>Your answer</em> : <div class="studentanswer m-t-2 m-b-2"><table class="generaltable"> <tbody><tr class=""> <td class="cell c0 lastcol" style=""><div class="no-overflow"><div class="text_to_html"><p>repppppppppp 1</p></div></div></td> </tr> <tr class="lastrow"> <td class="cell c0 lastcol" style=""><div class="response correct"><em>Response</em>: <br/><p>rep1</p></div></td> </tr> </tbody> </table> </div></div> </VALUE> </KEY> <KEY name="correctanswer"> <VALUE>1</VALUE> </KEY> <KEY name="attemptsremaining"> <VALUE>0</VALUE> </KEY> <KEY name="answerid"> <VALUE>13</VALUE> </KEY> </SINGLE> </RESPONSE>
+
+
+=
+=
+
+
+//On consulte la page
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&pageid=6&returncontents=0&wsfunction=mod_escape_get_page_data&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"page":{"id":7,"escapeid":1,"prevpageid":6,"nextpageid":0,"qtype":1,"qoption":0,"layout":0,"display":0,"timecreated":1608290724,"timemodified":0,"title":"Short answer","contents":"<div class=\"no-overflow\"><p>short answer<\/p><\/div>","contentsformat":1,"displayinmenublock":false,"type":0,"typeid":1,"typestring":"Short answer"},"newpageid":7,"location":"[45.19201487851206,5.753756761550904]","ongoingscore":"","progress":null,"contentfiles":[],"answers":[{"id":16,"answerfiles":[],"responsefiles":[],"jumpto":-9,"grade":0,"score":1,"flags":0,"timecreated":1608290724,"timemodified":0,"answer":"rep1","answerformat":1,"response":"<p>rep1<\/p>","responseformat":1},{"id":17,"answerfiles":[],"responsefiles":[],"jumpto":-9,"grade":0,"score":0,"flags":0,"timecreated":1608290724,"timemodified":0,"answer":"rep2","answerformat":1,"response":"<p>rep2<\/p>","responseformat":1}],"messages":[
+
+//check les réponses
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&pageid=7&cmid=1247&wsfunction=mod_escape_get_possible_answers_for_a_page&wstoken=d840606ab52aa8b27a9d906a38905a6a&moodlewssettingfilter=true
+{"answers":[{"id":"16","escapeid":"1","answer":"rep1","response":"<p>rep1<\/p>","jumpto":"-9"},{"id":"17","escapeid":"1","answer":"rep2","response":"<p>rep2<\/p>","jumpto":"-9"}]}
+
+//C'est un short answer on répond avec une chaine 
+http://localhost/moodle/webservice/rest/server.php?wsfunction=mod_escape_answer_question&wstoken=65bda6d00538bda25a8aa44b851f0ffa&escapeid=1&answerorid[0]=rep1&pageid=7
+RESPONSE> <SINGLE> <KEY name="userresponse"> <VALUE>rep1</VALUE> </KEY> <KEY name="studentanswerformat"> <VALUE>0</VALUE> </KEY> <KEY name="studentanswer"> <VALUE>rep1</VALUE> </KEY> <KEY name="response"> <VALUE><p>rep1</p></VALUE> </KEY> <KEY name="nodefaultresponse"> <VALUE>0</VALUE> </KEY> <KEY name="noanswer"> <VALUE>0</VALUE> </KEY> <KEY name="newpageid"> <VALUE>-9</VALUE> </KEY> <KEY name="maxattemptsreached"> <VALUE>0</VALUE> </KEY> <KEY name="isessayquestion"> <VALUE>0</VALUE> </KEY> <KEY name="inmediatejump"> <VALUE>0</VALUE> </KEY> <KEY name="feedback"> <VALUE> <div class="box generalbox boxaligncenter p-y-1 py-3"><div class="no-overflow"><div class="no-overflow"><p>short answer</p></div></div></div><div class="correctanswer generalbox"><em>Your answer</em> : <div class="studentanswer m-t-2 m-b-2"><table class="generaltable"> <tbody><tr class=""> <td class="cell c0 lastcol" style=""><div class="no-overflow"><div class="text_to_html">rep1</div></div></td> </tr> <tr class="lastrow"> <td class="cell c0 lastcol" style=""><div class="response correct"><em>Response</em>: <br/><p>rep1</p></div></td> </tr> </tbody> </table> </div></div> </VALUE> </KEY> <KEY name="correctanswer"> <VALUE>1</VALUE> </KEY> <KEY name="attemptsremaining"> <VALUE>0</VALUE> </KEY> <KEY name="answerid"> <VALUE>16</VALUE> </KEY> </SINGLE> </RESPONSE>
+
+
+
+==
+
+//On a l'indicateur -9, on met fin au test tout de suite 
+http://localhost/moodle/webservice/rest/server.php?moodlewsrestformat=json&escapeid=1&wsfunction=mod_escape_finish_attempt&wstoken=65bda6d00538bda25a8aa44b851f0ffa&moodlewssettingfilter=true
+{"data":[{"name":"gradeescape","value":1,"message":""},{"name":"displayofgrade","value":1,"message":"Display of grade (for students only)"},{"name":"gradeinfo","value":"{\"nquestions\":0,\"attempts\":0,\"total\":0,\"earned\":0,\"grade\":0,\"nmanual\":0,\"manualpoints\":0}","message":""}],"messages":[],"warnings":[]}
+
+
+
+
+//EXTRA TRICKS !
+
+// recupération d'image contenu dans le corps d'une page
+http://localhost/moodle/webservice/pluginfile.php/1404/mod_escape/page_contents/2/wall.png?forcedownload=1&token=65bda6d00538bda25a8aa44b851f0ffa

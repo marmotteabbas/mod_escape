@@ -183,7 +183,7 @@ class escape_page_type_matching extends escape_page {
             $data = new stdClass;
             $data->Submibutton = "Submit";
             $data->id = $PAGE->cm->id;
-            $data->answer = required_param('answerorid', PARAM_RAW);
+            $data->response = required_param('answerorid', PARAM_RAW);
             $data->pageid = required_param('pageid', PARAM_RAW);
         }
         

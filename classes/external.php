@@ -2140,6 +2140,7 @@ class mod_escape_external extends external_api {
                 $r["id"] = $a->id;
                 $r["escapeid"] = $a->escapeid;
                 $r["answer"] = $a->answer;
+                $r["response"] = $a->response;
                 $r["jumpto"] = $a->jumpto;
                 $return[] = $r;
             }
@@ -2163,6 +2164,7 @@ class mod_escape_external extends external_api {
                                 'id' => new external_value(PARAM_RAW, 'id of answer'),
                                 'escapeid' => new external_value(PARAM_RAW, 'id of escape'),
                                 'answer' => new external_value(PARAM_RAW, 'texte of the answer'),
+                                'response' => new external_value(PARAM_RAW, 'texte of the answer'),
                                 'jumpto' => new external_value(PARAM_RAW, 'possible next page'),
                             )
                         )

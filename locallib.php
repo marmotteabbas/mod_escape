@@ -5052,6 +5052,10 @@ class escape_page_type_manager {
                 $types[$pagetype->typeid] = $pagetype->typestring;
             }
         }
+        
+        //Pas pertinant dans le cadre de l'escape game, pour l'instant on vire
+        unset($types[10]);
+        
         return $types;
     }
 
