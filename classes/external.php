@@ -2117,7 +2117,7 @@ class mod_escape_external extends external_api {
      */
     public static function get_possible_answers_for_a_page($pageid,$cmid) {
         global $DB, $USER;
-        
+        /*
         $courseid = $DB->get_record("course_modules",array("id" => $cmid))->course;
                
         $context = get_context_instance(CONTEXT_COURSE, $courseid, true);
@@ -2129,8 +2129,8 @@ class mod_escape_external extends external_api {
                 $right = true;
             }
         }
-
-        if ($right) { 
+*/
+       // if ($right) { 
             $answers = $DB->get_records("escape_answers",array("pageid" => $pageid));
 
             $return = array();
@@ -2149,9 +2149,9 @@ class mod_escape_external extends external_api {
             $all = array();
             $all["answers"] = $return;
             return $all;
-        } else  {
+    /*  } else  {
             throw new Exception('Not allow to acces'); 
-        }
+        }*/
         
     }
     
