@@ -103,7 +103,7 @@ class escape_page_type_endofbranch extends escape_page {
     public function get_grayout() {
         return 1;
     }
-
+/*
     public function add_page_link($previd) {
         global $PAGE, $CFG;
         if ($previd != 0) {
@@ -111,7 +111,7 @@ class escape_page_type_endofbranch extends escape_page {
             return array('addurl'=>$addurl, 'type'=>ESCAPE_PAGE_ENDOFBRANCH, 'name'=>get_string('addanendofbranch', 'escape'));
         }
         return false;
-    }
+    }*/
     public function valid_page_and_view(&$validpages, &$pageviews) {
         return $this->properties->nextpageid;
     }

@@ -84,14 +84,14 @@ class escape_page_type_endofcluster extends escape_page {
             return $jump;
         }
     }
-    public function add_page_link($previd) {
+ /*   public function add_page_link($previd) {
         global $PAGE, $CFG;
         if ($previd != 0) {
             $addurl = new moodle_url('/mod/escape/editpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'sesskey'=>sesskey(), 'qtype'=>ESCAPE_PAGE_ENDOFCLUSTER));
             return array('addurl'=>$addurl, 'type'=>ESCAPE_PAGE_ENDOFCLUSTER, 'name'=>get_string('addendofcluster', 'escape'));
         }
         return false;
-    }
+    }*/
     public function valid_page_and_view(&$validpages, &$pageviews) {
         return $this->properties->nextpageid;
     }

@@ -310,7 +310,7 @@ class escape_add_page_form_essay extends escape_add_page_form_base {
 
     public function custom_definition() {
         
-        $this->_form->addElement('html', '<div id="fitem_id_title" class="form-group row  fitem   ">
+        $mform->addElement('html', '<div id="fitem_id_title" class="form-group row  fitem   ">
                                         <div class="col-md-3">
                                             <label class="col-form-label d-inline " for="id_title">
                                                 Location
@@ -321,7 +321,10 @@ class escape_add_page_form_essay extends escape_add_page_form_base {
 
                                             </div>
                                         </div>
-                                    </div>');
+                                    </div>
+                                    <span id="deletegps" 
+                                    onclick="require(\'mod_escape/map_pilot\').clearMarkers();" 
+                                    >Delete GPS Point</span>');
 
         $this->_form->addElement('hidden', 'location');
 

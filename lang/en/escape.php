@@ -591,3 +591,4 @@ $string['yourcurrentgradeis'] = 'Your current grade is {$a}';
 $string['yourcurrentgradeisoutof'] = 'Your current grade is {$a->grade} out of {$a->total}';
 $string['youshouldview'] = 'You should answer at least: {$a}';
 
+$string['editclickingpicture'] = 'Editing a clicking picture';

@@ -649,3 +649,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-popup-pane {
     display:none;
 }
+
+#deletegps {
+	position: relative;
+	left: 26%;
+	color: blue;
+	cursor: pointer;
+  }

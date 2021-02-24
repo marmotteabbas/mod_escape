@@ -69,11 +69,11 @@ class escape_page_type_cluster extends escape_page {
         global $USER;
         return $this->escape->cluster_jump($this->properties->id);
     }
-    public function add_page_link($previd) {
+ /*   public function add_page_link($previd) {
         global $PAGE, $CFG;
         $addurl = new moodle_url('/mod/escape/editpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'sesskey'=>sesskey(), 'qtype'=>ESCAPE_PAGE_CLUSTER));
         return array('addurl'=>$addurl, 'type'=>ESCAPE_PAGE_CLUSTER, 'name'=>get_string('addcluster', 'escape'));
-    }
+    }*/
     public function valid_page_and_view(&$validpages, &$pageviews) {
         $validpages[$this->properties->id] = 1;  // add the cluster page as a valid page
         foreach ($this->escape->get_sub_pages_of($this->properties->id, array(ESCAPE_PAGE_ENDOFCLUSTER)) as $subpage) {
@@ -116,7 +116,10 @@ class escape_add_page_form_cluster extends escape_add_page_form_base {
 
                                             </div>
                                         </div>
-                                    </div>');
+                                    </div>
+                                    <span id="deletegps" 
+                                    onclick="require(\'mod_escape/map_pilot\').clearMarkers();" 
+                                    >Delete GPS Point</span>');
 
         $mform->addElement('hidden', 'location');
 

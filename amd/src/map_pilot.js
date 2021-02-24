@@ -34,6 +34,11 @@ define(['jquery','mod_escape/leaflet'], function($, L) {
 
             L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap).bindPopup("Stage Place").openPopup();
             $("input[name='location']").val("["+e.latlng.lat+","+e.latlng.lng+"]");
+        },clearMarkers: function() {
+            $(".leaflet-marker-icon").remove();
+            $(".leaflet-popup").remove();
+            $(".leaflet-shadow-pane").remove();
+            $("input[name='location']").val("");
         }
     };
 });

@@ -357,7 +357,10 @@ class escape_add_page_form_clickingpicture extends escape_add_page_form_base {
 
                                             </div>
                                         </div>
-                                    </div>');
+                                    </div>
+                                    <span id="deletegps" 
+                                    onclick="require(\'mod_escape/map_pilot\').clearMarkers();" 
+                                    >Delete GPS Point</span>');
 
         $mform->addElement('hidden', 'location');
         
