@@ -281,7 +281,7 @@ class escape_page_type_clickingpicture extends escape_page {
     }
     public function add_page_link($previd) {
         global $PAGE, $CFG;
-        $addurl = new moodle_url('/mod/escape/editclickingpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'qtype'=>ESCAPE_PAGE_CLICKINGPICTURE));
+        $addurl = new moodle_url('/mod/escape/editpage.php', array('id'=>$PAGE->cm->id, 'pageid'=>$previd, 'qtype'=>ESCAPE_PAGE_CLICKINGPICTURE));
         return array('addurl'=>$addurl, 'type'=>ESCAPE_PAGE_CLICKINGPICTURE, 'name'=>get_string('addaclickingpicture', 'escape'));
     }
     protected function get_displayinmenublock() {
